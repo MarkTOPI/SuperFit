@@ -29,6 +29,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements Validator.ValidationListener {
 
 
+    @NotEmpty
     private EditText ed_1;
 
 

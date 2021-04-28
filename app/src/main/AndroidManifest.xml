@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/appicon"
         android:supportsRtl="true">
-        <activity android:name=".mainScreen"></activity>
+        <activity android:name=".RecipesList"></activity>
+        <activity android:name=".mainScreen" />
         <activity android:name=".AuthorizationCode" />
         <activity android:name=".Authorization" />
         <activity

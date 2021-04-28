@@ -36,6 +36,33 @@
             android:text="Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit, sed \ndo eiusmod tempor incididunt ut \nlabore et dolore magna wirl \naliqua. Up exlaborum incididunt \nquis nostrud exercitatn."
             android:textColor="#CAC4B0"
             android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/dealog_button_background"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/regular"
+                android:text="Ok" />
+
+            <Button
+                android:id="@+id/btnno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/dealog_button_background"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/regular"
+                android:text="No" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
