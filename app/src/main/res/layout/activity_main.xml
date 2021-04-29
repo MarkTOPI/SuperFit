@@ -44,7 +44,7 @@
             >
 
             <EditText
-                android:id="@+id/ed_1"
+                android:id="@+id/txUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -63,7 +63,7 @@
             android:layout_marginBottom="15sp">
 
             <EditText
-                android:id="@+id/ed_2"
+                android:id="@+id/txEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -82,7 +82,7 @@
             android:layout_marginBottom="15sp">
 
             <EditText
-                android:id="@+id/ed_3"
+                android:id="@+id/txCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="4"
@@ -101,7 +101,7 @@
             android:layout_marginBottom="25sp">
 
             <EditText
-                android:id="@+id/ed_4"
+                android:id="@+id/txRepeatCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="4"
@@ -129,7 +129,6 @@
             android:gravity="center"
             android:text="Sign Up →"
             android:textColor="#FFFFFF"
-            android:onClick="MainScreen"
             android:textSize="24sp" />
     </LinearLayout>
 

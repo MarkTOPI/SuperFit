@@ -45,7 +45,7 @@
             >
 
             <EditText
-                android:id="@+id/ed_1"
+                android:id="@+id/txUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -65,11 +65,10 @@
         android:orientation="vertical"
         android:layout_marginLeft="54dp"
         android:layout_marginRight="40dp"
-        android:onClick="SignIn"
         >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 

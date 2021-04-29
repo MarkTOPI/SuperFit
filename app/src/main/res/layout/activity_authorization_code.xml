@@ -61,7 +61,7 @@
             >
 
             <EditText
-                android:id="@+id/ed_1"
+                android:id="@+id/txUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 

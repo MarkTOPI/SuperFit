@@ -2,55 +2,34 @@ package com.example.superfit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mobsandgeeks.saripaar.ValidationError;
-import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.Email;
-import com.mobsandgeeks.saripaar.annotation.Length;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.google.common.base.Converter;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
-import com.mobsandgeeks.saripaar.annotation.Password;
+import android.database.sqlite.SQLiteDatabase;
 
-import org.w3c.dom.Text;
+import java.util.function.ToIntFunction;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements Validator.ValidationListener {
+public class MainActivity extends AppCompatActivity{
 
 
     @NotEmpty
-    private EditText ed_1;
-
-
-    //Email: arge@gmail.com
-    @NotEmpty
-    @Email
-    private EditText ed_2;
-
-    //Password: 1234
-    @NotEmpty
-    @Length(min = 4, max = 4)
-    private EditText ed_3;
-
-    //Password: 1234
-    @NotEmpty
-    @Length(min = 4, max = 4)
-    private EditText ed_4;
-
     Button btnSignUp;
+    EditText etUserName,etEmail,etPin_code,etRepeat_code;
+    private AwesomeValidation awesomeValidation;
+    DBHelper dbHelper;
 
-    private Validator validator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,24 +38,68 @@ public class MainActivity extends AppCompatActivity implements Validator.Validat
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        validator = new Validator(this);
-        validator.setValidationListener(this);
 
 
-        ed_1 = findViewById(R.id.ed_1);
-        ed_2 = findViewById(R.id.ed_2);
-        ed_3 = findViewById(R.id.ed_3);
-        ed_4 = findViewById(R.id.ed_4);
+        EditText etUserName = findViewById(R.id.txUserName);
+        EditText etEmail = findViewById(R.id.txEmail);
+        EditText etPin_code = findViewById(R.id.txCode);
+        EditText etRepeat_code = findViewById(R.id.txRepeatCode);
+
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        dbHelper = new DBHelper(this);
+
+        awesomeValidation.addValidation(this, R.id.txUserName, RegexTemplate.NOT_EMPTY,R.string.user_name);
+        awesomeValidation.addValidation(this, R.id.txEmail, Patterns.EMAIL_ADDRESS,R.string.emailerror);
+        awesomeValidation.addValidation(this, R.id.txCode, ".{4,}",R.string.pin_cod);
+        awesomeValidation.addValidation(this, R.id.txCode, "[1-9][1-9][1-9][1-9]",R.string.pin_cod2);
+        awesomeValidation.addValidation(this, R.id.txRepeatCode,".{4,}", R.string.repeat_pin_cod);
+        awesomeValidation.addValidation(this, R.id.txRepeatCode,R.id.txCode,R.string.pin_code_match);
 
         btnSignUp = findViewById(R.id.btnSignUp);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                validator.validate();
+                if(awesomeValidation.validate()){
+
+                    String name = etUserName.getText().toString();
+                    String email = etEmail.getText().toString();
+                    String pin_code = (etPin_code.getText().toString());
+
+                    SQLiteDatabase database = dbHelper.getWritableDatabase();
+                    ContentValues contentValues = new ContentValues();
+
+
+                    contentValues.put(DBHelper.KEY_NAME,name);
+                    contentValues.put(DBHelper.KEY_EMAIL,email);
+                    contentValues.put(DBHelper.KEY_CODE,pin_code);
+
+                    database.insert(DBHelper.TABLE_CONTACTS, null,contentValues);
+
+
+                    Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+                    if (cursor.moveToFirst()){
+                        int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
+                        int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
+                        int emailIndex = cursor.getColumnIndex(DBHelper.KEY_EMAIL);
+                        int codeIndex = cursor.getColumnIndex(DBHelper.KEY_CODE);
+                        do {
+                            Log.d( "Log", "ID = " + cursor.getInt(idIndex) + "\n" + "name = " + cursor.getString(nameIndex) + "\n"
+                                    + "email = " + cursor.getString(emailIndex) + "\n" + "code = " +
+                                    "" +
+                                    "" + cursor.getString(codeIndex) );
+                        } while (cursor.moveToNext());
+                    }else {
+                        Log.d("Log", "0 rows");
+                    }
+                    cursor.close();
+                    Intent intent = new Intent(MainActivity.this, mainScreen.class);
+                    startActivity(intent);
+                }
             }
         });
-
     }
 
     public void SignIn(View view) {
@@ -84,27 +107,4 @@ public class MainActivity extends AppCompatActivity implements Validator.Validat
         startActivity(intent);
     }
 
-    public void MainScreen(View view) {
-        /*Intent intent = new Intent(this, mainScreen.class);
-        startActivity(intent);*/
-    }
-
-    @Override
-    public void onValidationSucceeded() {
-        Intent intent = new Intent(this, mainScreen.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onValidationFailed(List<ValidationError> errors) {
-        for(ValidationError error : errors){
-            View view = error.getView();
-            String message = error.getCollatedErrorMessage(this);
-            if(view instanceof EditText){
-                ((EditText) view).setError(message);
-            }else{
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-            }
-        }
-    }
 }

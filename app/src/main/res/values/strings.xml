@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SuperFit</string>
+
+    <string name="user_name">Enter a valid name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="pin_cod">Enter a valid password</string>
+    <string name="pin_cod2">Enter a valid password 1-9</string>
+    <string name="repeat_pin_cod">Enter a valid password</string>
+    <string name="repeat_pin_cod2">Enter a valid password 1-9</string>
+    <string name="pin_code_match">Passwords dont match</string>
 </resources>
