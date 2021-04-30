@@ -66,35 +66,44 @@ public class MainActivity extends AppCompatActivity{
 
                     String name = etUserName.getText().toString();
                     String email = etEmail.getText().toString();
-                    String pin_code = (etPin_code.getText().toString());
+                    String pin_code = etPin_code.getText().toString();
 
                     SQLiteDatabase database = dbHelper.getWritableDatabase();
-                    ContentValues contentValues = new ContentValues();
 
+                    ContentValues contentValues = new ContentValues();
 
                     contentValues.put(DBHelper.KEY_NAME,name);
                     contentValues.put(DBHelper.KEY_EMAIL,email);
                     contentValues.put(DBHelper.KEY_CODE,pin_code);
 
-                    database.insert(DBHelper.TABLE_CONTACTS, null,contentValues);
-
+                    database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
 
                     Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
-                    if (cursor.moveToFirst()){
+
+                    if(cursor.moveToNext()){
                         int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
                         int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
                         int emailIndex = cursor.getColumnIndex(DBHelper.KEY_EMAIL);
                         int codeIndex = cursor.getColumnIndex(DBHelper.KEY_CODE);
-                        do {
-                            Log.d( "Log", "ID = " + cursor.getInt(idIndex) + "\n" + "name = " + cursor.getString(nameIndex) + "\n"
-                                    + "email = " + cursor.getString(emailIndex) + "\n" + "code = " +
-                                    "" +
-                                    "" + cursor.getString(codeIndex) );
-                        } while (cursor.moveToNext());
+                        do{
+
+                            Log.d("Log", "ID = " + cursor.getInt(idIndex)
+                                            + "\n"
+                                    + "Name = " + cursor.getInt(nameIndex)
+                                    + "\n"
+                                    + "Email = " + cursor.getInt(emailIndex)
+                                    + "\n"
+                                    + "Code = " + cursor.getInt(codeIndex)
+                                    );
+
+                        }while (cursor.moveToNext());
                     }else {
-                        Log.d("Log", "0 rows");
+                        Log.d("Error Log", "0 rows");
                     }
+
                     cursor.close();
+                    dbHelper.close();
+
                     Intent intent = new Intent(MainActivity.this, mainScreen.class);
                     startActivity(intent);
                 }
@@ -106,5 +115,4 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(this, Authorization.class);
         startActivity(intent);
     }
-
 }

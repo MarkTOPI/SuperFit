@@ -13,7 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "name";
-    public static final String KEY_EMAIL = "mail";
+    public static final String KEY_EMAIL = "email";
     public static final String KEY_CODE = "code";
 
     public  DBHelper(Context context){

@@ -69,7 +69,7 @@
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/radioButton"
+                        android:id="@+id/balanced_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -84,7 +84,7 @@
                     android:gravity="center">
 
                     <CheckBox
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/high_fiber_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -99,7 +99,7 @@
                     android:gravity="right">
 
                     <CheckBox
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/high_protein_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -119,6 +119,7 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/recycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

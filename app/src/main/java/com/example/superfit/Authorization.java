@@ -38,39 +38,39 @@ public class Authorization extends AppCompatActivity {
 
         awesomeValidation.addValidation(this, R.id.txUserName, RegexTemplate.NOT_EMPTY,R.string.user_name);
 
-        /*txSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(awesomeValidation.validate()){
-
-                    SQLiteDatabase database = dbHelper.getWritableDatabase();
-                    Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
-
-                    userName = txUserName.getText().toString();
-                    hasUser = false;
-                    if(cursor.moveToFirst()){
-                        int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
-                        do{
-
-                            if(cursor.getString(nameIndex).equals(userName)){
-                                hasUser = true;
-                                break;
-                            }
-
-                        }
-                        while (cursor.moveToNext());
-                    }
-                    cursor.close();
-
-                    if(hasUser){
-                        Intent intent = new Intent(Authorization.this, AuthorizationCode.class);
-                        intent.putExtra("userName",userName);
-                        startActivity(intent);
-                    }
-                    else Toast.makeText(Authorization.this, "Пользователя с таким именем не существует!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });*/
+//        txSignIn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(awesomeValidation.validate()){
+//
+//                    SQLiteDatabase database = dbHelper.getWritableDatabase();
+//                    Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+//
+//                    userName = txUserName.getText().toString();
+//                    hasUser = false;
+//                    if(cursor.moveToFirst()){
+//                        int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
+//                        do{
+//
+//                            if(cursor.getString(nameIndex).equals(userName)){
+//                                hasUser = true;
+//                                break;
+//                            }
+//
+//                        }
+//                        while (cursor.moveToNext());
+//                    }
+//                    cursor.close();
+//
+//                    if(hasUser){
+//                        Intent intent = new Intent(Authorization.this, AuthorizationCode.class);
+//                        intent.putExtra("userName",userName);
+//                        startActivity(intent);
+//                    }
+//                    else Toast.makeText(Authorization.this, "Пользователя с таким именем не существует!", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
     }
 
     public void SignUp(View view) {
