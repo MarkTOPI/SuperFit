@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Authorization"
+    android:background="#000000"
+    >
+
+
+    <GridView
+        android:id="@+id/gridnumbers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:gravity="center"
+
+        android:layout_marginTop="15sp"
+
+        android:cacheColorHint="@color/white"
+        android:numColumns="3"
+        android:verticalSpacing="10sp"/>
+
+</androidx.wear.widget.BoxInsetLayout>

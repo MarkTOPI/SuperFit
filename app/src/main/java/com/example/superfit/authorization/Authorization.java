@@ -1,20 +1,19 @@
-package com.example.superfit;
+package com.example.superfit.authorization;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.example.superfit.DB.DBHelper;
+import com.example.superfit.MainActivity;
+import com.example.superfit.R;
 
 public class Authorization extends AppCompatActivity {
 

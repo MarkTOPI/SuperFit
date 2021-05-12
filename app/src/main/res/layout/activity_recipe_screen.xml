@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".recipe.RecipeScreen">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/backgroundPreview"
+    android:layout_weight="2.5"
+    android:gravity="left"
+    android:layout_marginBottom="-24dp"
+    android:orientation="vertical"
+    android:background="@drawable/image_eat">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="20dp"
+        android:onClick="goBack"
+        android:scaleType="fitXY"
+        android:src="@drawable/arrow_back"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recipe"
+        android:gravity="center"
+        android:textSize="36dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/bold"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/element">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label"
+            android:text="Chicken Vesuvio"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/black"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:paddingLeft="5dp"
+            android:text="7777 kcal"
+            android:layout_marginTop="16dp"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp">
+            <TextView
+                android:id="@+id/protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:paddingLeft="5dp"
+                android:text="123 protein"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text=" • " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text="123 fat"
+                android:id="@+id/fat"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text=" • " />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text="123 carbs"
+                android:id="@+id/carbs"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingridients:"
+            android:layout_marginVertical="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/bold"
+            android:textSize="14sp"/>
+
+            <ListView
+                android:id="@+id/ingridientsLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="10sp"
+                android:divider="@android:color/transparent"
+                />
+    </LinearLayout>
+</LinearLayout>

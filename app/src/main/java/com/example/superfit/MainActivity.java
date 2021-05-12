@@ -15,11 +15,11 @@ import android.widget.EditText;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
-import com.google.common.base.Converter;
+import com.example.superfit.DB.DBHelper;
+import com.example.superfit.authorization.Authorization;
+import com.example.superfit.mainscreen.mainScreen;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import android.database.sqlite.SQLiteDatabase;
-
-import java.util.function.ToIntFunction;
 
 public class MainActivity extends AppCompatActivity{
 
