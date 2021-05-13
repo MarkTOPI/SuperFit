@@ -65,6 +65,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="54dp"
         android:layout_marginRight="40dp"
+        android:onClick="Signin"
         >
 
         <TextView

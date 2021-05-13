@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/llNumber"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="78dp"
+    android:layout_height="78dp"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/background_number">
+
+    <TextView
+        android:id="@+id/txtNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/regular"
+        android:layout_gravity="center"
+        android:gravity="bottom|center"
+        android:textSize="64sp"
+        android:lineHeight="78sp"
+        android:text="9"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>

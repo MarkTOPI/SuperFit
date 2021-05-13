@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.superfit.MainActivity;
 import com.example.superfit.R;
+import com.example.superfit.mainscreen.mainScreen;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -138,6 +139,12 @@ public class RecipesList extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void goMainScreen(View view) {
+        Intent intent = new Intent(this, mainScreen.class);
+        startActivity(intent);
+    }
+
     private class getRecipes extends AsyncTask<Void, Void, Void>{
 
         @Override

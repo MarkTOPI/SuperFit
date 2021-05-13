@@ -25,12 +25,12 @@
             android:gravity="center"
 
             android:fontFamily="@font/bold"
-            android:text="Change your weight"
+            android:text="Change your height"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextKg"
+            android:id="@+id/editTextCm"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"

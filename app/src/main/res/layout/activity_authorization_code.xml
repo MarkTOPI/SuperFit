@@ -67,6 +67,8 @@
 
                 android:background="@null"
 
+                android:gravity="center"
+
                 android:fontFamily="@font/regular"
                 android:hint="Email"
                 android:textColorHint="#FFFFFF"
@@ -77,153 +79,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="384sp"
             android:orientation="vertical">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="20sp"
-                    >
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:fontFamily="@font/light"
-
-                        android:background="@drawable/button_background"
-
-                        android:text="9"
-                        android:textSize="60sp"
-                        android:textColor="#FFFFFF"/>
-
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="20sp"
-                    >
-
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="5"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="7"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="6"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    >
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                    <Button
-                        android:id="@+id/button8"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="4"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                    <Button
-                        android:id="@+id/button9"
-                        android:layout_width="78sp"
-                        android:layout_height="78sp"
-                        android:background="@drawable/button_background"
-
-                        android:fontFamily="@font/light"
-
-                        android:text="8"
-                        android:textColor="#FFFFFF"
-                        android:textSize="60sp" />
-
-                </TableRow>
-
-
-            </TableLayout>
+            <GridView
+                android:id="@+id/gridNumbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:cacheColorHint="@color/white"
+                android:gravity="center"
+                android:horizontalSpacing="30dp"
+                android:numColumns="3"
+                android:verticalSpacing="30dp" />
         </LinearLayout>
 
     </LinearLayout>
